@@ -1,4 +1,7 @@
-<html>
+<!DOCTYPE>
+
+
+<html ng-app = 'homies'>
 <head>
 <script src='http://code.jquery.com/jquery-1.10.2.js' type='text/javascript'></script>
 <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
@@ -8,7 +11,7 @@
 
 <script src='http://code.angularjs.org/1.1.5/angular.js' type='text/javascript'></script>
 <script src='app.js' type='text/javascript'></script>
-<script src='FriendController.js' type='text/javascript'></script>
+<script src='homieCtrl.js' type='text/javascript'></script>
 
 
 
@@ -16,9 +19,10 @@
 <title>Facebook Lesson 18</title>
 </head>
 
-<body>
+<body ng-controller = 'homieCtrl'>
 
-<h1>The <strong>facebook</strong> Friend Machine</h1>
+
+<h1>The <strong>Facebook</strong> Friend Machine</h1>
 
 <div class="friends">
 
@@ -26,12 +30,18 @@
 <form class="form-inline searchForm" role="form">
   <div class="form-group">
 
-  <input class="form-control" placeholder="Search Anything About Your Friends" >
+  <!-- <input class="form-control" placeholder="Search Anything About Your homies" ng-model = "searchTerm">
+
+  <input class="form-control" placeholder="Search your homies by name" ng-model = "homie.name">
+
+  <input class="form-control" placeholder="Search by your homies's location" ng-model = "searchTerm"> -->
+
+
   <!-- The stuff below is For step 5....get rid of the one above if you wish-->
-<!--    
-    <input class="form-control" placeholder="Search Your Friends' Name" >
-    <input class="form-control" placeholder="Search Your Freinds' Location" > 
- -->
+   
+    <input class="form-control" placeholder="Search by Your Homie's Name" ng-model = 'homie.name'></input>
+    <input class="form-control" placeholder="Search by Your Homie's Location" ng-model = 'homie.current_location'></input>
+
     <select class="input-medium">
         <option>Name</option>
         <option># friends</option>
@@ -49,12 +59,12 @@
   <ul>
     <li class='friend'>
        <img class="profile-pic" src='https://scontent-a.xx.fbcdn.net/hprofile-ash3/833_10200838803828124_1233160321_a.jpg'>
-      <h3>Cali Fornia</h3>
+      <h3>California</h3>
       <div class="location">
         Location: New Port Beach, California, United States
       </div>      
       <div class="status">
-        Status: I hate the snow. I wish I was on the beach right now!!! <span class="hashtag">#ihateprovo</span>
+        Status: F@#$ the snow! I wish I was on the beach right now!!! <span class="hashtag">#ihateprovo</span>
       </div>      
       <div class="num-friends">
         Friends: 1,367
@@ -63,10 +73,25 @@
   </ul>
 </div>
 
-
-
-
-
+<li ng-repeat="homie in homies | filter: homie">{{homie.name}} <img ng-src= {{homie.pic_square}}></img><li>
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
