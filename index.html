@@ -39,19 +39,19 @@
 
   <!-- The stuff below is For step 5....get rid of the one above if you wish-->
    
-    <input class="form-control" placeholder="Search by Your Homie's Name" ng-model = 'homie.name'></input>
-    <input class="form-control" placeholder="Search by Your Homie's Location" ng-model = 'homie.current_location'></input>
+    <input class="form-control" placeholder="Search by Your Homie's Name" ng-model='search.name'></input>
+    <input class="form-control" placeholder="Search by Your Homie's Location" ng-model='search.current_location'></input>
 
-    <select class="input-medium">
-        <option>Name</option>
-        <option># friends</option>
-        <option>City</option>
-        <option>State</option>
-        <option>Country</option>
+    <select class="input-medium" ng-model="sortField">
+        <option value="name">Name</option>
+        <option value="friend_count"># friends</option>
+        <option value="current_location.city">City</option>
+        <option value="current_location.state" >State</option>
+        <option value="current_location.country " >Country</option>
     </select>
-    <select class="input-medium">
-        <option value="false">Descending</option>
-        <option value="true">Ascending</option>
+    <select class="input-medium" ng-model="order">
+        <option value="true">Descending</option>
+        <option value="false">Ascending</option>
     </select>
   </div>
 </form>
@@ -73,7 +73,10 @@
   </ul>
 </div>
 
-<li ng-repeat="homie in homies | filter: homie">{{homie.name}} <img ng-src= {{homie.pic_square}}></img><li>
+  <li ng-repeat="homie in homies | filter: search | orderBy: sortField: order">
+    <p>{{homie.name}}</p>
+    <img ng-src= {{homie.pic_square}}></img>
+  <li>
 
 </body>
 </html>

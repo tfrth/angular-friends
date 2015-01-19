@@ -1,7 +1,7 @@
 var app = angular.module('homies');
 
 app.controller('homieCtrl', function($scope){
-
+	
 	$scope.homies = [
     {
         "name": "Preston McNeil",
@@ -448,7 +448,30 @@ app.controller('homieCtrl', function($scope){
         "$$hashKey": "02U"
     }
 ]
+
 $scope.searchTerm;
+$scope.attribute
+$scope.order
+
 
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
